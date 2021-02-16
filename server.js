@@ -1,11 +1,13 @@
 
-
+const cors = require('cors');
 
 const express = require('express');
 var app = express();
 var sql = require("mssql");
 var result;
+
 a = async () => {
+
 
     try {
         await sql.connect('mssql://sogei\\sogeiadmin:pa$$w0rd2018@10.207.234.104/InpsIntranet');
@@ -23,7 +25,7 @@ a = async () => {
 
 
 
-
+app.use(cors());
 
 app.get("/", async (req, res) => {
     await a();
